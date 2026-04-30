@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Khush Panchal | Electrical Engineering Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #07111f;
+      color: #dbeafe;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+    }
+
+    nav {
+      max-width: 1180px;
+      margin: auto;
+      padding: 16px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 900;
+      color: #facc15;
+      letter-spacing: 0.4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: #dbeafe;
+      padding: 7px 10px;
+      border-radius: 999px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: #67e8f9;
+    }
+
+    section {
+      padding: 74px 5%;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 42px;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 32%),
+                  radial-gradient(circle at bottom right, rgba(250, 204, 21, 0.15), transparent 28%),
+                  #07111f;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(250, 204, 21, 0.12);
+      color: #facc15;
+      border: 1px solid rgba(250, 204, 21, 0.35);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 18px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      color: #f8fafc;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero-subtitle {
+      font-size: 22px;
+      color: #facc15;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 17px;
+      margin-bottom: 14px;
+      max-width: 760px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #07111f;
+      box-shadow: 0 12px 25px rgba(56, 189, 248, 0.24);
+    }
+
+    .btn-secondary {
+      border: 2px solid #facc15;
+      color: #facc15;
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .profile-panel {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(8, 47, 73, 0.92));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 32px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .profile-panel::before {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(250, 204, 21, 0.16);
+    }
+
+    .profile-panel::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      left: -40px;
+      bottom: -40px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 6px solid rgba(56, 189, 248, 0.35);
+      display: block;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+      background: #0f172a;
+    }
+
+    .profile-panel h2 {
+      position: relative;
+      z-index: 2;
+      font-size: 30px;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+
+    .profile-panel p {
+      position: relative;
+      z-index: 2;
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .info-grid div {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #dbeafe;
+      font-size: 15px;
+    }
+
+    .info-grid strong {
+      color: #facc15;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .card p {
+      color: #cbd5e1;
+      margin-bottom: 14px;
+    }
+
+    .card ul {
+      margin-left: 20px;
+      color: #cbd5e1;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .toc-item {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 20px;
+      padding: 20px;
+      transition: 0.2s;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+    }
+
+    .toc-item:hover {
+      transform: translateY(-5px);
+      border-color: #38bdf8;
+      background: rgba(8, 47, 73, 0.72);
+    }
+
+    .toc-item span {
+      display: block;
+      color: #facc15;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .toc-item strong {
+      color: #f8fafc;
+      font-size: 18px;
+    }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .resume-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
+    }
+
+    .resume-card h3 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .resume-card p,
+    .resume-card li {
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .resume-card ul {
+      margin-left: 18px;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-left: 6px solid #facc15;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .project-card h3 {
+      color: #f8fafc;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: #cbd5e1;
+      margin-bottom: 14px;
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .mini {
+      background: rgba(8, 47, 73, 0.5);
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .mini strong {
+      display: block;
+      color: #67e8f9;
+      margin-bottom: 6px;
+    }
+
+    .mini p {
+      color: #cbd5e1;
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .artifact {
+      margin-top: 18px;
+      background: rgba(250, 204, 21, 0.12);
+      border: 1px dashed rgba(250, 204, 21, 0.45);
+      border-radius: 16px;
+      padding: 16px;
+      color: #fde68a;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
+    }
+
+    .skill-card h3 {
+      color: #38bdf8;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .skill-card p {
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .skill-tag {
+      margin-top: 12px;
+      background: rgba(250, 204, 21, 0.1);
+      border-left: 4px solid #facc15;
+      padding: 10px;
+      border-radius: 10px;
+      color: #fde68a;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .bar h4 {
+      display: flex;
+      justify-content: space-between;
+      color: #e0f2fe;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .bar-line {
+      height: 12px;
+      background: rgba(148, 163, 184, 0.22);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #facc15);
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .highlight-card {
+      background: linear-gradient(145deg, rgba(8, 47, 73, 0.95), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: white;
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+    }
+
+    .highlight-card h3 {
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+
+    .highlight-card p,
+    .highlight-card li {
+      color: #dbeafe;
+    }
+
+    .highlight-card ul {
+      margin-left: 18px;
+    }
+
+    .swot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .swot-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .swot-card h3 {
+      color: #38bdf8;
+      margin-bottom: 8px;
+    }
+
+    .swot-card ul {
+      margin-left: 18px;
+      color: #cbd5e1;
+    }
+
+    .testimonial {
+      background: linear-gradient(135deg, rgba(250, 204, 21, 0.14), rgba(56, 189, 248, 0.1));
+      border: 1px solid rgba(250, 204, 21, 0.24);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .testimonial p {
+      color: #e0f2fe;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    .testimonial .name {
+      margin-top: 18px;
+      color: #facc15;
+      font-weight: 900;
+      font-style: normal;
+    }
+
+    footer {
+      background: #030712;
+      border-top: 1px solid rgba(56, 189, 248, 0.18);
+      color: #94a3b8;
+      text-align: center;
+      padding: 24px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .toc-grid,
+      .resume-grid,
+      .project-meta,
+      .skills-grid,
+      .two-grid,
+      .swot-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="brand">Khush Panchal</div>
+      <div class="nav-links">
+        <a href="#cover">Cover</a>
+        <a href="#toc">Contents</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#ethics">Ethics</a>
+        <a href="#future">Goals</a>
+        <a href="#conclusion">SWOT</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="cover">
+      <div>
+        <span class="badge">Electrical Engineering Graduate Portfolio</span>
+        <h1>Khush Panchal<br><span>Electrical Engineering Portfolio</span></h1>
+        <div class="hero-subtitle">Powering ideas with innovation, safety, and responsibility.</div>
+        <p>
+          This professional portfolio presents my academic achievements, technical skills, interdisciplinary projects, leadership experiences, ethical awareness, and professional development as an Electrical Engineering graduate.
+        </p>
+        <p>
+          It reflects my interest in electrical systems, renewable energy, circuits, automation, power distribution, and practical engineering problem-solving.
+        </p>
+        <div class="hero-actions">
+          <a href="#toc" class="btn btn-primary">Explore Portfolio</a>
+          <a href="#resume" class="btn btn-secondary">View Resume</a>
+        </div>
+      </div>
+
+      <div class="profile-panel">
+        <img class="profile-img" src="data:image/webp;base64,UklGRrYZAABXRUJQVlA4IKoZAAAwkACdASrwAPAAPsFSo0wnpKMiqZOaoAAgCWVuMHoGqwKU7/lpGd7eO9IE1cgNSBt4AaAcSbqCEZdc3qveDL6YvV26OPwyAGctqenV8J0D7+CY89pkU8OAr5ZOQH097nZzHMx7nBDoXc5/Gt3luwtzf7+GyHWm2nBs8wf+Y3iIjN/qtYJlUzQ4cxpWTgIpN0PgfZbg8vaV86UTlRA/+FyPSFD4dVtflX5DiieBnS4vJuquZuXK2xYDBoMewEN//k/JXEg+yYzslRFvjvvBxcQyrram1tAdV4xCzk5OefJvYT8KAAD+8cgE3fE5NEGs8KpXn5tAa56FcRTuIwCig3Ha3JdfO5hkAfkZ+7Np4xS3SLKMNPx1zjyyJWFx+Paeobv/1auZDzQHRFKr3IcbWevhEeeiD2qk5oJKhmxw+T1VgH+TifEz/lZjxOE6ZWTBvfj8iw4DYoZ+jnvhvMj2tNMIteottnUUINXTbd1NMXdK8bkq8WkSLHGeKGfBecj+qVQh9amKtCGLUnlsqqg92JlPHBYLgwCkjY9xPjQTm6WMx+gpmY44zj3+gc76NkYSdhhZSjY8G+pdSK1QOBsBvygXC2p33RLtuiIuCHguO2xvNb+7ERbdNxmXs2sxV4mDXj9GVHTrY+aBCaPDXxNoebIWza1QAPe/qf0bWSxU4ciNeRf3LTHwn7Y6co2zuEZ2NfWU5VwCbjMqcN5cRXSMqKG/soEcigwhPtyTc7oh6Sfl8lq8/n91kD93o5+StqahN3DSLRzIFk9+rt0/fH8hrJTVyhSyH5OQzypBhhprQOKI12GaZX0HfiLXdVXyJme6xq/Q+yAqW5K2iKYRNPO5fVmXyPEIdbE+WAAItOjTAC3T2l9Yr6ujYWsVEF/PBaq3D0vcJTMdSaTVH4BcPrdkGhQFLmwoS1SHR0F39B+8JUy97v6PVY08C9AayZ6wvdLm4vi3TJ40e19chTzJuBZqj1j3Q39IbiXHCym6KLbeMB1a0b2q+Q22AgaVdOCJy++a+ZYEkBGFlb2qTpQj41AHYwpX14i7Jsn9oSvlvTgsC11BgOP5RdbG30WYWT/OHJPmiOjYwWvx1GQs37EtdsCHIRJpN19kXTmYF2NiN3IW5Kl++AlIv4YEs7BKevqBg9XKFvEofLRtvm7hld/oiBm7Oa6cHTbsNKzPBMCy+MTM7Rwwsok1h+9u9ygaqdtI69ak5S74gWyks+omXTnIyQ9bkcXnu1NHCxdPWhCIS7BhSO+IzmcfLkUDVXEp2whCT2nw6XPvwr8l6ScWZeK6PIMdMBnUwzH5vKg2HmR7af0R4SFkMdVPQXs0AciUzj2aLVVl9l67mH+o6xkoQ8n89exUKjrf4SUzPZszaQk5VHFRWsqIWxk7RIEnHwZtcCLdjNc6r3BJmbY+DM/NHT5UJtO6t+5YhJmGLoBG3KSjWa7CwXmd0O206lp7f25XHl1yKuUeZ0lU8YzY+b3JscOkpa9YYg3Bw3wd0fkJStlTX5ozqa5zSwiTYq3YhdLH6SeIXfHGcPcIhQ0FCNhUejRBug2PXb89vXa2Vk8E+Ek6b8ybLKKtmxL3R4M9uex4hUt0wM+KGXjx9zkHGlOOnhcbWOY9AaqZcRzWOaYmtNj5M7yIeeIGgfeA2w+HBxP0exdwT35mQV8+aGNgRslZfvbT2b9eex/A6j5FdM26UYYgs4rzLwhu5ch+3omX8T2b3e7G/8UIuwG3lqpkDrJCU+qz+Tn0hpXp5+Tg7sCAQasEf2D4fddFeMthkm7VR1cgnvXsf3fMXz44IzuWwr8KTpT3KrJSHAMexu5fKKeNS2O3uAXmcGaMcaVNL9dG5LBZfS52AxsLb7SyxwpgU284F4+BNo4DInCk+bx9NJ8adF2W7RcdN7lDZFtCTii1qJJdHeReu2m/TYeGGFsMqtgOEmVlB5KoJn/wQYS9B58OVujWq5ZMimCrWlRhjvT7W4ZdwumW2D9n4kPaBlaPhhVO0cPjUrNVd+OOOoKJrzyF0KZztIAm0ePs+o3zn9gc4uuftQ4uvIXMb9mXczmygZyo0eCvIL6c9+K7x2X9yAK1E2hq0ImoYf1W30On/lBfRdZNAbgYXwbPWVdLpZEeoHeZuDO32jRInTy6gZAfg8lRs7TsAfCYskVmSOYd7MqhRcD6x/LKLzQbxBz9+Zsls54ebGFO0Sd0yMQ8yFbAaEUI+73mmct7iX8Bza0Odto80nGuZemwpFg8e2VveQJpTPCHuUN4Vh8GCb9dAWGG3An/j+q9umjIdooz1w/NVPZ4p6N0GOHitzPtkNX4PI6JIypXlTja4rR95OL21SBtWP0EEugceM+gjYDnjOBjQggf/twrIZUYE86/tTsXBI61KEVqq4/fWdujQxhfRlWpX5v8AnUIlWeFzI1Hq1cJBk/bjHU7M0a2jfG67UIyDb91beJ1uzCsm0Gtl3Rl8Fn5n0KJw+9hpFP3l6f+vvpcJ1mhma3RukYN68Q3flxVOJn1r76vgWgnppdXVLsYGMl8cUVUA5Zi2cCny8i5FGeq8jFJz7XTSXAwRy4WO24RnhJPx9mxB6/4FBs708VJzCLeYjm5Dj3fu3znCUfwHiKFAwAiXDti5EvZPqUr8l5dcyJDokkb2Fdyg5TtCm2HwGEVM7aXhbOLws/gL8gzogd8oLPjoiFNPE8OlOT7r5bntpYsZpdICaRqUd/CxSWW0XvOL1fZzRVhU6N7PrFl3/bHJcnMAV8AnmuDtitj6MKCuf6xFcHvk/8kseZ9S0zb1iFeaIzB4/ySCDw1l1MG9sIWEmlSiFkeW8iMR2YoC4tr5oRE7qxHXeRmB6hV0Y0/INK9EyQmru+qhxvgwTUCYLPeZ8IbhTExNs5aDsLteOJgF0FVgAp5ki2tqeY5ZgQfOs4bQxfnaRnG9gvTrScVqRp+Gnh99CeC9cByTVDjJfTBc+1oRkSlHiV8dwoKuCBYW0y3iGGeSR7ZJDDsX0lUNVxgDCGC88ESW1t6bba8qbb/D05q2bwrzOJUINRBQwjb5rLlWM3Cw31u59RqaxTE1Dpp8x8+PVS+xpMkDYBGUNl7mIeEQewKW2gMss3y9nzGf3FtOr8r7BDgcZlUrG8InzXavIMVprup72U84kagRcOkRK2CG/3lxx9siUwNRtTcqYO6FrgW8n4xUGYY98xXRdvQsPsXS6vCzRnGu/aX/HYh6VrL8nlgPJ62vyiFYWtE7Z2Wq0R74N+vpyqj8wFhi3GWqGSzFCPIEY6W6HZPIhKKCuB0N87gEXV4zOHmI3QF9nZf3sVzYq7ctNnFCtlXPk7XHfdMAcl7yHlxaH4q5/uIdVjiZJ+4kiA9o37uK7pH/LAR14YWZWZZfaTPbm79nJWn8rky/0g6X9ycDD6MXgYDsScxpbOncMSYpFIk7ckTAa4T0n41rYpPfOaWVRGFSPyWZOuGvDcxunQ/BLD4xvhvI4mYx7xgEPjwoB4BFwYrCxC1XYyUf4LK2MPefXSr02lbe+W0EaDl26rJY3Obh09UTGj68QiFj+X7aR2WpyTR8bGk41/dhiyBzJ/PMR6cMxeWTITJkOj1WHIuz6ZwaPyay6IDfbx/ATUzEPtvZUbQSpbTwjQkds2Z4xl5m31wcplG9dgqwCjZlWkjBPGCq+8GeW8M+1inOV61jtXkbSIevyzbrCNCLM0zjDEeOuG1jX8f4FboVyBYGuACD8beSuy92qNOcv61KHQrDDdflGC2ZBwFZGzIzw5byYaFMrCHx5p67Ly9+vFPzvk3Xf/s2Uq4H41XdR1hHTVh0nfShWH0cVsBb0MrqVvG3lSw3iLcPaa2VEepr8UK4MXO6HPDAaTYqF1ArVV+7hQX+UWm5RQJdSHIWZOHHk4d6VuF+a6rqf3QaBjoVMwwCYIL8j84P3PlBLDcfyPip7VyecdwK7ucP/0H1ogLNmHZGEM1l4m8wVdG3UGYZwLPElVNEn2CYdP7WZOQ+ip+FTWgtH54f2Id82Ry/hxlLONwzHod+GQbhgQfZLC6C6zhwpUcG0qJyFrcNw6D97ouxtKmURTK7G2sMv/Ee4bF+nvFbCe90ZM3btzJUyT/AYR1t93/rb6CQ6R9GhfagMAEc9SVZO7YebB2pd76iw3ge4vLe37+GewMnu5DrjbU0SsdtpwxA5Lu3dxdAVYqLsNSRE6rIiTvzWI0mvzqoF+hh2xqNoWd5+g7JeRbtM4D0trfMc7EOyrwCS7ybcc9EY1XxqlE96w0GfO0qSn/5n2HMQGkIGxbkX8VU6TU4jFp6Ir+LeEPniyVvQJ9kXIffxuSnk+jc49Di+0FvC6axM0FUjx2KQjPzvdpxw9AvF0xQhzN8wTEyEcYd9QtkqNLLSjRRtBSX2tSqfVL7+6fZktA7wZtY+7k7ayqY40RHUx/Q/CRd1v2tAU7npDcHG77GG9rSBKbsMPzdfnSAuwx/wg/8QafqnGe3WH+7xA+sDPqLvlgzmSYg08ZKcs9x1s3qElVb+S1HT7BF0YKaD+RUUz/aDr0xKOb8Aef38D99y8YjqjA9UbVz+l2Gf54VAs+mk4+9dFXffzNOQMhXHwLKXoc7v/3ln1GYgCozkNAm9uX/8v6Bg==" alt="Khush Panchal profile photo" />
+        <h2>Khush Panchal</h2>
+        <p>Electrical Engineering Graduate</p>
+        <div class="info-grid">
+          <div><strong>Email:</strong> khushpanchal2005@gmail.com</div>
+          <div><strong>Academic Program:</strong> B.Tech Electrical Engineering</div>
+          <div><strong>Institution:</strong> Pandit Deendayal Energy University</div>
+          <div><strong>Portfolio Date:</strong> 30 April 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="toc">
+      <div class="container">
+        <div class="section-title">
+          <h2>Table of Contents</h2>
+          <p>Organized sections with hyperlinks for easy navigation.</p>
+        </div>
+        <div class="toc-grid">
+          <a class="toc-item" href="#cover"><span>01</span><strong>Cover Page</strong></a>
+          <a class="toc-item" href="#philosophy"><span>02</span><strong>Introduction & Learning Philosophy</strong></a>
+          <a class="toc-item" href="#resume"><span>03</span><strong>Resume / CV</strong></a>
+          <a class="toc-item" href="#projects"><span>04</span><strong>Projects & Research</strong></a>
+          <a class="toc-item" href="#skills"><span>05</span><strong>Advanced Skills</strong></a>
+          <a class="toc-item" href="#leadership"><span>06</span><strong>Leadership Experience</strong></a>
+          <a class="toc-item" href="#ethics"><span>07</span><strong>Global & Ethical Awareness</strong></a>
+          <a class="toc-item" href="#future"><span>08</span><strong>Aspirations & Development</strong></a>
+          <a class="toc-item" href="#conclusion"><span>09</span><strong>Conclusion & SWOT</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <div class="container">
+        <div class="section-title">
+          <h2>Introduction and Learning Philosophy</h2>
+          <p>My academic journey, values, and approach toward Electrical Engineering.</p>
+        </div>
+        <div class="card">
+          <p>
+            My learning journey in Electrical Engineering has been shaped by curiosity about how electrical energy is generated, transmitted, controlled, and used safely in modern society. Electrical Engineering connects circuit theory, power systems, machines, electronics, control systems, renewable energy, and automation.
+          </p>
+          <p>
+            My academic philosophy is based on practical understanding, technical discipline, safety awareness, and continuous improvement. I believe that engineering knowledge becomes valuable when it is applied to solve real problems in a reliable, efficient, and ethical way.
+          </p>
+          <p>
+            The values that guide my work include accuracy in calculations, safety in electrical systems, teamwork, innovation, environmental responsibility, and willingness to keep upgrading technical skills according to industry needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="container">
+        <div class="section-title">
+          <h2>Resume / CV</h2>
+          <p>A structured overview of my education, skills, interests, activities, and development.</p>
+        </div>
+        <div class="resume-grid">
+          <div class="resume-card"><h3>Education</h3><p><strong>B.Tech in Electrical Engineering</strong><br />Pandit Deendayal Energy University<br />Bachelor’s degree completed in Electrical Engineering.</p></div>
+          <div class="resume-card"><h3>Work Experience / Training</h3><ul><li>Academic laboratory work in circuits, machines, and power systems.</li><li>Project-based learning in electrical design, energy systems, and automation.</li><li>Team-based presentations, technical reports, and experimental documentation.</li></ul></div>
+          <div class="resume-card"><h3>Job Profile</h3><p>Electrical Engineering graduate with interest in power systems, renewable energy, electrical maintenance, automation, control systems, and technical documentation.</p></div>
+          <div class="resume-card"><h3>Areas of Interest</h3><ul><li>Power Systems</li><li>Electrical Machines</li><li>Renewable Energy</li><li>Control Systems</li><li>Automation and IoT</li></ul></div>
+          <div class="resume-card"><h3>Specialization Focus</h3><p>Electrical power distribution, energy efficiency, solar energy systems, basic circuit design, electrical safety, and automation-based applications.</p></div>
+          <div class="resume-card"><h3>Technical Skills</h3><ul><li>Electrical circuit analysis</li><li>MATLAB/Simulink basics</li><li>Arduino and sensor-based systems</li><li>MS Excel for calculations</li><li>Technical report writing</li></ul></div>
+          <div class="resume-card"><h3>Soft Skills</h3><ul><li>Communication</li><li>Teamwork</li><li>Leadership</li><li>Problem-solving</li><li>Time management</li><li>Adaptability</li></ul></div>
+          <div class="resume-card"><h3>Certifications & Development</h3><ul><li>Workshops and seminars related to electrical systems and renewable energy.</li><li>Online learning in automation, circuit design, and energy management.</li><li>Technical event participation and skill development activities.</li></ul></div>
+          <div class="resume-card"><h3>Awards & Honors</h3><p>Recognition areas include project presentation, technical participation, teamwork-based activities, and academic development.</p></div>
+          <div class="resume-card"><h3>Volunteer & Co-Curricular Activities</h3><ul><li>Technical events</li><li>Group presentations</li><li>Seminar participation</li><li>Electrical model and poster preparation</li></ul></div>
+          <div class="resume-card"><h3>Hobbies</h3><ul><li>Exploring new technologies</li><li>Learning electrical tools and software</li><li>Reading about renewable energy</li><li>Creative technical presentations</li></ul></div>
+          <div class="resume-card"><h3>Contact</h3><p><strong>Email:</strong> khushpanchal2005@gmail.com<br /><strong>LinkedIn:</strong> Add later<br /><strong>Location:</strong> Gujarat, India</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Interdisciplinary Projects and Research</h2>
+          <p>Major project work demonstrating problem-solving across multiple technical fields.</p>
+        </div>
+        <div class="project-list">
+          <div class="project-card">
+            <h3>1. Smart Energy Monitoring System</h3>
+            <p><strong>Project Overview:</strong> This project combined Electrical Engineering, IoT, sensors, data monitoring, and energy management to track electricity consumption and improve energy awareness.</p>
+            <div class="project-meta">
+              <div class="mini"><strong>Methodology</strong><p>Used sensor-based monitoring logic, basic circuit connections, microcontroller concepts, and data observation.</p></div>
+              <div class="mini"><strong>Outcomes & Innovation</strong><p>Developed a concept to observe energy usage patterns and support better electricity-saving decisions.</p></div>
+              <div class="mini"><strong>Visual / Prototype</strong><p>Circuit diagram, sensor connection layout, dashboard concept, and project report.</p></div>
+              <div class="mini"><strong>Challenges & Solutions</strong><p>Challenge: accurate measurement. Solution: calibration, safe connections, and repeated testing.</p></div>
+            </div>
+            <div class="artifact">Visual Artefact: Circuit diagram + energy monitoring dashboard concept</div>
+          </div>
+
+          <div class="project-card">
+            <h3>2. Solar Powered EV Charging Concept</h3>
+            <p><strong>Project Overview:</strong> This project integrated renewable energy, electrical design, battery charging, sustainability, and basic cost analysis to study solar-supported EV charging.</p>
+            <div class="project-meta">
+              <div class="mini"><strong>Methodology</strong><p>Studied solar panel output, load requirement, charging demand, battery support, and layout planning.</p></div>
+              <div class="mini"><strong>Outcomes & Innovation</strong><p>Suggested a clean-energy charging approach to reduce dependence on conventional grid electricity.</p></div>
+              <div class="mini"><strong>Visual / Prototype</strong><p>System block diagram, energy flow chart, and cost comparison table.</p></div>
+              <div class="mini"><strong>Challenges & Solutions</strong><p>Challenge: solar variation. Solution: battery backup and grid-assisted hybrid connection concept.</p></div>
+            </div>
+            <div class="artifact">Visual Artefact: Solar EV charging block diagram + load calculation table</div>
+          </div>
+
+          <div class="project-card">
+            <h3>3. Home Automation Using Microcontroller</h3>
+            <p><strong>Project Overview:</strong> This project connected electronics, embedded systems, sensors, automation, and user convenience to control basic home appliances through a smart system.</p>
+            <div class="project-meta">
+              <div class="mini"><strong>Methodology</strong><p>Prepared basic circuit logic using sensors, relay module, microcontroller programming, and switching control.</p></div>
+              <div class="mini"><strong>Outcomes & Innovation</strong><p>Created an automation concept for energy saving, comfort, and safe appliance control.</p></div>
+              <div class="mini"><strong>Visual / Prototype</strong><p>Wiring diagram, control flowchart, relay connection sketch, and prototype photos.</p></div>
+              <div class="mini"><strong>Challenges & Solutions</strong><p>Challenge: safe switching. Solution: proper relay isolation and low-voltage control circuit.</p></div>
+            </div>
+            <div class="artifact">Visual Artefact: Automation circuit + relay control flowchart</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Advanced Skill Development and Mastery</h2>
+          <p>Technical, soft, and creative skills developed through academic and project work.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card"><h3>Circuit Design</h3><p>Prepared basic circuit diagrams and understood electrical connections, load, voltage, and current behavior.</p><div class="skill-tag">Artefact: Circuit diagrams and lab records.</div></div>
+          <div class="skill-card"><h3>MATLAB / Simulation</h3><p>Used simulation concepts for basic electrical analysis, system behavior, and performance understanding.</p><div class="skill-tag">Artefact: Simulation screenshots and result tables.</div></div>
+          <div class="skill-card"><h3>Automation & IoT</h3><p>Worked with microcontroller logic, sensors, relay switching, and basic automation applications.</p><div class="skill-tag">Artefact: Prototype photos and wiring sketches.</div></div>
+          <div class="skill-card"><h3>Technical Communication</h3><p>Developed confidence in explaining electrical concepts through presentations, reports, and project discussion.</p><div class="skill-tag">Artefact: PPT slides and technical reports.</div></div>
+        </div>
+        <div class="card" style="margin-top:24px">
+          <div class="bars">
+            <div class="bar"><h4><span>Electrical Fundamentals</span><span>86%</span></h4><div class="bar-line"><div class="bar-fill" style="width:86%"></div></div></div>
+            <div class="bar"><h4><span>Project Documentation</span><span>82%</span></h4><div class="bar-line"><div class="bar-fill" style="width:82%"></div></div></div>
+            <div class="bar"><h4><span>Presentation and Communication</span><span>84%</span></h4><div class="bar-line"><div class="bar-fill" style="width:84%"></div></div></div>
+            <div class="bar"><h4><span>Team Collaboration</span><span>88%</span></h4><div class="bar-line"><div class="bar-fill" style="width:88%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership">
+      <div class="container">
+        <div class="section-title"><h2>Collaborative and Leadership Experiences</h2><p>Team roles, responsibilities, conflict resolution, and contributions.</p></div>
+        <div class="two-grid">
+          <div class="highlight-card"><h3>Technical Team Collaboration</h3><ul><li>Worked with team members on electrical projects, presentations, and reports.</li><li>Helped divide tasks such as circuit design, documentation, and presentation work.</li><li>Focused on completing work safely, clearly, and on time.</li></ul></div>
+          <div class="highlight-card"><h3>Leadership and Problem Solving</h3><ul><li>Supported team decisions by comparing practical options.</li><li>Encouraged clear communication during group activities.</li><li>Helped solve issues related to wiring, testing, and project explanation.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ethics">
+      <div class="container">
+        <div class="section-title"><h2>Global Awareness and Ethical Considerations</h2><p>How global issues and ethical thinking influence electrical engineering work.</p></div>
+        <div class="two-grid">
+          <div class="card"><h3 style="color:#38bdf8;margin-bottom:10px">Global Perspective</h3><p>Electrical Engineering is strongly connected with energy demand, renewable power, climate change, grid reliability, electric mobility, and energy access. Engineers must develop solutions that are efficient, safe, and sustainable.</p><p><strong>Case Scenario:</strong> A low-cost electrical installation may reduce initial cost, but if safety protection and proper wiring are ignored, it can create serious risk to people and equipment.</p></div>
+          <div class="card"><h3 style="color:#38bdf8;margin-bottom:10px">Ethical Reflection</h3><p>Ethical responsibility in electrical work includes safe design, correct rating of devices, proper earthing, honest testing, efficient energy use, and responsibility toward users and the environment.</p><p><strong>Personal View:</strong> I believe electrical engineering success should be measured by safety, reliability, sustainability, and public benefit.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="future">
+      <div class="container">
+        <div class="section-title"><h2>Professional Aspirations and Development</h2><p>Career goals, further learning, and continuous improvement strategies.</p></div>
+        <div class="card"><p>My professional aspiration is to build a strong career in Electrical Engineering by gaining practical experience in power systems, electrical maintenance, renewable energy, automation, and technical project execution.</p><p>For continuous improvement, I plan to learn advanced electrical design software, improve knowledge of industrial automation, attend technical workshops, gain field exposure, and stay updated with safety standards and sustainable energy practices.</p></div>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <div class="container">
+        <div class="section-title"><h2>Conclusion and Self-Assessment</h2><p>Summary of learning, self-evaluation, and SWOT analysis.</p></div>
+        <div class="card"><p>This portfolio summarizes my academic journey, technical skills, electrical projects, teamwork experiences, ethical thinking, and professional goals. It reflects my growth from learning core electrical concepts to applying them in practical project-based situations.</p><p>My self-assessment shows that I have developed good interest in electrical systems, renewable energy, automation, and technical communication. Areas for growth include advanced software mastery, stronger industrial exposure, and deeper practical design knowledge.</p>
+          <div class="swot-grid">
+            <div class="swot-card"><h3>Strengths</h3><ul><li>Interest in electrical systems</li><li>Good teamwork and communication</li><li>Willingness to learn technical tools</li></ul></div>
+            <div class="swot-card"><h3>Weaknesses</h3><ul><li>Need more industrial exposure</li><li>Need deeper software practice</li><li>Need improvement in advanced design confidence</li></ul></div>
+            <div class="swot-card"><h3>Opportunities</h3><ul><li>Renewable energy sector growth</li><li>Automation and IoT applications</li><li>Electrical maintenance and power system roles</li></ul></div>
+            <div class="swot-card"><h3>Threats</h3><ul><li>Fast-changing technology</li><li>High competition in engineering jobs</li><li>Need for continuous skill upgrading</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonial">
+      <div class="container">
+        <div class="section-title"><h2>Testimonial</h2><p>Recommendation from an academic mentor or professor.</p></div>
+        <div class="testimonial"><p>“Khush Panchal has shown sincere interest in Electrical Engineering concepts, technical learning, and project-based activities. His portfolio reflects a positive approach toward practical understanding, teamwork, and professional growth.”</p><div class="name">— Academic Mentor / Professor</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Khush Panchal | Electrical Engineering Portfolio | Pandit Deendayal Energy University</footer>
+</body>
+</html>
